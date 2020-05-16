@@ -1,0 +1,19 @@
+{
+  "name": "pico_placa_michelle_peralbo",
+  "version": "1.0.0",
+  "description": "This program takes as an input: - license plate number - A date - Time of the day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-personalMich:Michu-leja/pico-placa-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
