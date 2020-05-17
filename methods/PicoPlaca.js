@@ -18,32 +18,37 @@ module.exports = {
     },
 
     isHourInTheThreshold: (hour) => {
+        while (hour.charAt(0) === "0"){
+            hour = hour.substring(1)
+        }
         if ((hour < "9:30" && hour > "7:00") || (hour > "16:00" && hour < "19:30")) {
             return true
         } else {
             return false
         }
-    },
+        },
 
-    isAllowedToRoad: (dayOfWeek, lastDayLicenseNumber, hour) => {
-        if (dayOfWeek === 0 || dayOfWeek === 6) {
+    isAllowedToRoad: (dayOfWeek, lastDayLicenseNumber, isHourInThreshold) => {
+        if (dayOfWeek === 0 || dayOfWeek == 6) {
             return true
         }
-        if (dayOfWeek === 1 && lastDayLicenseNumber === 1 || lastDayLicenseNumber === 2) {
-            return this.isHourInTheThreshold(hour)
+        if (dayOfWeek === 1 && (lastDayLicenseNumber == 1 || lastDayLicenseNumber == 2)) {
+            return !isHourInThreshold
         }
-        if(dayOfWeek === 2 && lastDayLicenseNumber === 3 || lastDayLicenseNumber === 4){
-            return this.isHourInTheThreshold(hour)
+        if (dayOfWeek === 2 && (lastDayLicenseNumber == 3 || lastDayLicenseNumber == 4)) {
+            return !isHourInThreshold
         }
-        if(dayOfWeek === 3 && lastDayLicenseNumber === 5 || lastDayLicenseNumber === 6){
-            return this.isHourInTheThreshold(hour)
+        if (dayOfWeek === 3 && (lastDayLicenseNumber == 5 || lastDayLicenseNumber == 6)) {
+            return !isHourInThreshold
         }
-        if(dayOfWeek === 4 && lastDayLicenseNumber === 7 || lastDayLicenseNumber === 8){
-            return this.isHourInTheThreshold(hour)
+        if (dayOfWeek === 4 && (lastDayLicenseNumber == 7 || lastDayLicenseNumber == 8)) {
+            return !isHourInThreshold
         }
-        if(dayOfWeek === 5 && lastDayLicenseNumber === 9 || lastDayLicenseNumber === 0){
-            return this.isHourInTheThreshold(hour)
+        if (dayOfWeek === 5 && (lastDayLicenseNumber == 9 || lastDayLicenseNumber == 0)) {
+            return !isHourInThreshold
+        } else {
+            return false
         }
     }
 
-}
+    }
