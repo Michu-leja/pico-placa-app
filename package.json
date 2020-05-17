@@ -4,7 +4,7 @@
   "description": "This program takes as an input: - license plate number - A date - Time of the day",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "mocha": "^7.1.2",
     "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "sinon": "^9.0.2"
   }
 }

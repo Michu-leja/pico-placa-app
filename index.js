@@ -7,17 +7,15 @@ const port = process.env.PORT || "3000";
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get("/", (req, res) => {
     res.render("index");
-  });
-app.post("/check-status", (req, res)=>{
-    console.log(req.body.licenseNumber);
-    
+});
+app.post("/check-status", (req, res) => {
     res.render("results")
-});  
+});
 
-  app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Listening to requests on http://localhost:${port}`);
-  });
+});
