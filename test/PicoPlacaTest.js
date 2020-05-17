@@ -120,4 +120,15 @@ describe('Test of Pico y placa functions', function () {
 
         assert.equal(resultDigit, valueExpected)
     })
+
+    it('should return false if is not allowed to road day 1 = monday , last digit =1 hour 07:00', function () {
+        inputDay= 1
+        inputLastDigit =1
+        inputHour = "07:00"
+        valueExpected =  false
+
+        resultDigit = picoPlaca.isAllowedToRoad(inputDay, inputLastDigit,picoPlaca.isHourInTheThreshold(inputHour) )
+
+        assert.equal(resultDigit, valueExpected)
+    })
 })

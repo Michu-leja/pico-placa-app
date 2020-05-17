@@ -19,7 +19,8 @@ app.post("/check-status", (req, res) => {
     let date = req.body.date
     let hour = req.body.hour
     let result = picoPlaca.isAllowedToRoad(picoPlaca.getDayOfDate(date), picoPlaca.getLastDigitOfLicensePlate(licensePlateNumber), picoPlaca.isHourInTheThreshold(hour))
-    res.render("results")
+    
+    res.render("index", { result: result, enable:true})
 });
 
 app.listen(port, () => {

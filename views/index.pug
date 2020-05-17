@@ -1,38 +1,28 @@
-doctype html
-html
-    head
-        meta(charset="utf-8")
-        meta(name="theme-color", content="#000000")
-        title "Pico y placa app"
-        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
-    integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
-    
-        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-    
-        link(rel='stylesheet', href='/stylesheets/style.css')
-    body
-        script(src='https://code.jquery.com/jquery-3.2.1.min.js'
-           integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
-           crossorigin='anonymous')
-           
-        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
-           integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous')
-        
-        .main.container
-            .row
-                .col-md-6.col-md-offset-3
-                    h2.display-4.m-b-2 Pico y placa predictor
-
-                    form(method= "POST" action= "/check-status")
-                        .form-group
-                            label(for="licenseNumber") License plate number: 
-                            input#licenseNumber.form-control(type="text", placeholder= "Ex: POQ-9898" ,name="licenseNumber" ,required)
-                        .form-group
-                            label(for="date") Choose a date:
-                            input#date.form-control(type="date", name="date", required) 
-                        .form-group
-                            label(for="hour") Insert an hour of the day:
-                            input#hour.form-control(type="time", name="hour", required)
-                        button.btn.btn-primary(type="submit") Predict    
-
-                  
+extends template
+block layout-content
+    .main.container
+        .row
+            .col-md-6.col-md-offset-3
+                br
+                h3 Pico y placa predictor
+                form(method= "POST" action= "/check-status")
+                    .form-group
+                        label(for="licenseNumber") License plate number: 
+                        input#licenseNumber.form-control(type="text", placeholder= "Ex: POQ-9898" ,name="licenseNumber" ,required)
+                    .form-group
+                        label(for="date") Choose a date:
+                        input#date.form-control(type="date", name="date", required) 
+                    .form-group
+                        label(for="hour") Insert an hour of the day:
+                        input#hour.form-control(type="time", name="hour", required)
+                    button.btn.btn-primary(type="submit") Predict
+                br 
+                br    
+                if enable   
+                    div(style="background-color: lightblue; text-align: center")
+                        if result
+                            .form-group
+                                h4 You can road your car!
+                        else
+                            .form-group
+                                h4 You can't road your car !

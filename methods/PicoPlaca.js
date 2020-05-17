@@ -21,7 +21,7 @@ module.exports = {
         while (hour.charAt(0) === "0"){
             hour = hour.substring(1)
         }
-        if ((hour < "9:30" && hour > "7:00") || (hour > "16:00" && hour < "19:30")) {
+        if ((hour <= "9:30" && hour >= "7:00") || (hour >= "16:00" && hour <= "19:30")) {
             return true
         } else {
             return false
