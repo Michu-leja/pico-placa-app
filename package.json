@@ -19,7 +19,5 @@
     "mocha": "^7.1.2",
     "pug": "^2.0.4"
   },
-  "devDependencies": {
-    "sinon": "^9.0.2"
-  }
+  "devDependencies": {}
 }
